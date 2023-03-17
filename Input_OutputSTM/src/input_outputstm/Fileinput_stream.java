@@ -20,40 +20,38 @@ public class Fileinput_stream {
         Scanner scn = new Scanner(System.in);
         IOWriter writernow = new IOWriter();
 
+//        this will read data from the file 
         IOReader readnow = new IOReader();
         readnow.readFromFile("C:\\Users\\ISAIAH SHELL\\Documents\\ReadFile PRac\\ReadNOW.txt");
+       
+//       take data from user and store it inside the file 
         String data = scn.nextLine();
         writernow.writefile("C:\\Users\\ISAIAH SHELL\\Documents\\ReadFile PRac\\ReadNOW.txt" , data);
     }
-
 }
 
+// Class and method that allow user to reaf from a file 
 class IOReader {
 
     public void readFromFile(String filename) {
-
         try ( FileInputStream stream = new FileInputStream(filename)) {
 
             int i = 0;
-
             while ((i = stream.read()) > -1) {
                 char ii = (char) i;
-
                 System.out.print(ii);
-
             }
         } catch (IOException ex) {
         }
     }
-
-    //    public void readwithBufferReader(){
-//        Ass
-//    }
 }
 
+//Class that allow user to write into a file
 class IOWriter {
 
     public void writefile(String filename, String data) {
+//        With the true inside File parameter helps to append data drom user to an exiting data on the file 
+//  without the true its will only replace the current data coming from the user
         try ( FileWriter writer = new FileWriter(filename , true)) {
             int i = 0;
             writer.write(data);
@@ -61,8 +59,3 @@ class IOWriter {
         }
     }
 }
-
-
-
-
-//read from file with BuffereReader
